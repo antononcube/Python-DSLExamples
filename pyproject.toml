@@ -14,4 +14,4 @@ license = { text = "MIT" }
 packages = ["DSLExamples"]
 
 [tool.setuptools.package-data]
-DSLExamples = ["_resources/*.json"]
+DSLExamples = ["resources/*.json"]
