@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "DSLExamples"
+version = "0.1.0"
+description = "DSL command translation examples and workflow separators"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+
+[tool.setuptools]
+packages = ["DSLExamples"]
+
+[tool.setuptools.package-data]
+DSLExamples = ["_resources/*.json"]
