@@ -27,6 +27,8 @@ python_lsa = dsl_examples("Python", "LSAMon")
 separators = dsl_workflow_separators("WL", "LSAMon")
 ```
 
+Detailed examples -- with LLM code generation -- are given in the notebook ["DSL-examples-with-LangChain.ipynb"](https://github.com/antononcube/Python-DSLExamples/blob/main/docs/DSL-examples-with-LangChain.ipynb).
+
 -----
 
 ## References
