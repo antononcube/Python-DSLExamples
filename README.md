@@ -31,12 +31,12 @@ separators = dsl_workflow_separators("WL", "LSAMon")
 
 ## References
 
-[AAp1] Anton Antonov
+[AAp1] Anton Antonov,
 [DSL::Examples, Raku package](https://github.com/antononcube/Raku-DSL-Examples),
 (2025-2026),
 [GitHub/antononcube](https://github.com/antononcube).
 
-[AAp2] Anton Antonov
+[AAp2] Anton Antonov,
 [DSLExamples, Wolfram Language paclet](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/DSLExamples/),
 (2025-2026),
 [Wolfram Language Paclet Repository](https://resources.wolframcloud.com/publishers/resources?PublisherID=AntonAntonov).
