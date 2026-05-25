@@ -7,6 +7,8 @@ The package closely follows the Raku package
 Wolfram Language paclet ["DSLExamples"](https://resources.wolframcloud.com/PacletRepository/resources/AntonAntonov/DSLExamples), [AAp2],
 and has (or should have) the same DSL examples data.
 
+Currently, the package has DSL examples to translate from Bulgarian, English, Portuguese, and Russian.
+
 -----
 
 ## Installation (editable)
