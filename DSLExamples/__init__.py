@@ -16,7 +16,10 @@ _DSL_WORKFLOW_SEPARATORS_CACHE: Dict[str, Any] | None = None
 def resources_map() -> Dict[str, str]:
     """Return a mapping of resource names to package-relative paths."""
     return {
-        "dsl-examples.json": "resources/dsl-examples.json",
+        "dsl-examples-bulgarian.json": "resources/dsl-examples-bulgarian.json",
+        "dsl-examples-english.json": "resources/dsl-examples-english.json",
+        "dsl-examples-portuguese.json": "resources/dsl-examples-portuguese.json",
+        "dsl-examples-russian.json": "resources/dsl-examples-russian.json",
         "dsl-workflow-separators.json": "resources/dsl-workflow-separators.json",
     }
 
@@ -26,11 +29,19 @@ def _load_json(resource_name: str) -> Dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _get_dsl_examples() -> Dict[str, Any]:
+def _get_dsl_examples(from_lang: str = 'English') -> Dict[str, Any]:
+    from_lang_local = from_lang.lower()
+    known_langs = {"bulgarian", "english", "portuguese", "russian"}
+    if from_lang_local not in known_langs:
+        raise ValueError(
+             f"The value of from_lang is expected to be one of '{"', '".join(known_langs)}'."
+        )
     global _DSL_EXAMPLES_CACHE
     if _DSL_EXAMPLES_CACHE is None:
-        _DSL_EXAMPLES_CACHE = _load_json("dsl-examples.json")
-    return dict(_DSL_EXAMPLES_CACHE)
+        _DSL_EXAMPLES_CACHE = {}
+    if from_lang not in _DSL_EXAMPLES_CACHE:
+        _DSL_EXAMPLES_CACHE[from_lang_local] = _load_json("dsl-examples-" + from_lang_local + ".json")
+    return dict(_DSL_EXAMPLES_CACHE[from_lang_local])
 
 
 def _get_dsl_workflow_separators() -> Dict[str, Any]:
@@ -68,13 +79,13 @@ def _dsl_retrieve(*, lang: Any = ANY, workflow: Any = ANY, dsl_data: Dict[str, A
     return dsl_data
 
 
-def dsl_examples(lang: Any = ANY, workflow: Any = ANY) -> Any:
+def dsl_examples(lang: Any = ANY, workflow: Any = ANY, from_lang: str = 'English') -> Any:
     """Return DSL examples for a language/workflow or all examples."""
     if lang is None:
         lang = ANY
     if workflow is None:
         workflow = ANY
-    dsl_data = _get_dsl_examples()
+    dsl_data = _get_dsl_examples(from_lang=from_lang)
     return _dsl_retrieve(lang=lang, workflow=workflow, dsl_data=dsl_data)
 
 
