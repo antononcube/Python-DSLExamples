@@ -24,6 +24,13 @@ def test_examples_wrong_lang_type():
     else:
         raise AssertionError("Expected TypeError for wrong lang type")
 
+def test_examples_wrong_from_lang():
+    try:
+        dsl_examples(lang='Python', from_lang="Afrikaans")
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("Expected ValueError for wrong from_lang value")
 
 def test_separators_smoke():
     separators = dsl_workflow_separators(lang="Python", workflow="LSAMon")
